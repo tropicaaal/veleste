@@ -1,0 +1,22 @@
+[package]
+name = "veleste"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+
+# These fields configure default behavior for uploads with `cargo v5`.
+[package.metadata.v5]
+upload-strategy = "monolith"
+slot = 2
+icon = "cool-x"
+compress = true
+
+[dependencies]
+bytemuck = { version = "1.25.2", features = ["must_cast", "derive"] }
+vex-sdk = "0.28.0"
+vex-sdk-jumptable = "0.1.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
